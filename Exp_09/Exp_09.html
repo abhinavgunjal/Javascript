@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Settings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark {
+      background-color: #1f1f2e;
+      color: #ffffff;
+    }
+    body.light {
+      background-color: #f4f7f6;
+      color: #333333;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-weight: normal;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #ffc107;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="dark">
+  <h1>Abhinav Gunjal</h1>
+  <h2>24070521092</h2>
+  <button id="themeBtn" onclick="toggleTheme()">Switch Theme</button>
+
+  <script>
+    const themeBtn = document.getElementById("themeBtn");
+    const currentTheme = localStorage.getItem("theme") || "dark";
+    document.body.className = currentTheme;
+
+    function toggleTheme() {
+      if (document.body.classList.contains("dark")) {
+        document.body.className = "light";
+        localStorage.setItem("theme", "light");
+      } else {
+        document.body.className = "dark";
+        localStorage.setItem("theme", "dark");
+      }
+    }
+  </script>
+</body>
+</html>
